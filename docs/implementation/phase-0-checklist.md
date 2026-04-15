@@ -39,14 +39,14 @@ A fase fica concluída quando:
 Garantir que o projecto arranca com a stack certa e sem ruído desnecessário.
 
 ### Checklist
-- [ ] criar projecto com `pnpm create next-app`
+- [x] criar projecto com `pnpm create next-app`
 - [ ] confirmar uso de App Router
-- [ ] confirmar TypeScript ativo
-- [ ] confirmar ESLint ativo
-- [ ] confirmar Tailwind CSS v4 ativo
+- [x] confirmar TypeScript ativo
+- [x] confirmar ESLint ativo
+- [x] confirmar Tailwind CSS v4 ativo
 - [ ] confirmar alias `@/*`
-- [ ] confirmar que o projecto arranca com `pnpm dev`
-- [ ] validar que não há erros iniciais no terminal
+- [x] confirmar que o projecto arranca com `pnpm dev`
+- [x] validar que não há erros iniciais no terminal
 
 ### Notas técnicas
 - usar `src/` directory
@@ -61,11 +61,11 @@ Garantir que o projecto arranca com a stack certa e sem ruído desnecessário.
 Remover código demo para ficar com uma base limpa e fácil de ler.
 
 ### Checklist
-- [ ] limpar conteúdo demo de `src/app/page.tsx`
+- [x] limpar conteúdo demo de `src/app/page.tsx`
 - [ ] limpar estilos default que não interessam ao projecto
 - [ ] rever `src/app/layout.tsx`
-- [ ] remover assets ou exemplos que venham do template e não tragam valor
-- [ ] deixar uma homepage mínima temporária
+- [x] remover assets ou exemplos que venham do template e não tragam valor
+- [x] deixar uma homepage mínima temporária
 
 ### Resultado esperado
 - a app já não parece um template inicial
