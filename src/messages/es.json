@@ -157,6 +157,7 @@
     "formSuccessTitle": "Mensaje enviado",
     "formSuccessBody": "Gracias por ponerse en contacto. Me pondré en contacto con usted en breve, normalmente en 24 horas.",
     "formSendAnother": "Enviar otro mensaje",
+    "formSubmitError": "Se produjo un error al enviar el mensaje. Por favor inténtelo de nuevo o contáctenos directamente por correo electrónico.",
     "errNameMin": "El nombre debe tener al menos 2 caracteres",
     "errEmailInvalid": "Introduzca una dirección de email válida",
     "errPhoneInvalid": "Número de teléfono no válido",

@@ -157,6 +157,7 @@
     "formSuccessTitle": "Mensagem enviada",
     "formSuccessBody": "Obrigado pelo seu contacto. Entrarei em contacto consigo em breve, normalmente dentro de 24 horas.",
     "formSendAnother": "Enviar outra mensagem",
+    "formSubmitError": "Ocorreu um erro ao enviar a mensagem. Por favor tente novamente ou contacte diretamente por email.",
     "errNameMin": "O nome deve ter pelo menos 2 caracteres",
     "errEmailInvalid": "Introduza um endereço de email válido",
     "errPhoneInvalid": "Número de telefone inválido",

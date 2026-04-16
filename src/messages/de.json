@@ -157,6 +157,7 @@
     "formSuccessTitle": "Nachricht gesendet",
     "formSuccessBody": "Vielen Dank für Ihre Kontaktaufnahme. Ich werde mich bald bei Ihnen melden, in der Regel innerhalb von 24 Stunden.",
     "formSendAnother": "Weitere Nachricht senden",
+    "formSubmitError": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
     "errNameMin": "Der Name muss mindestens 2 Zeichen haben",
     "errEmailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
     "errPhoneInvalid": "Ungültige Telefonnummer",
