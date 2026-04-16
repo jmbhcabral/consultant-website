@@ -350,6 +350,19 @@
     "cookiesUpdated": "abril de 2025",
     "termsUpdated": "abril de 2025"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Página não encontrada",
+    "description": "A página que procura não existe ou foi movida. Verifique o endereço ou regresse à página inicial.",
+    "backHome": "Voltar ao início"
+  },
+  "error": {
+    "code": "500",
+    "title": "Ocorreu um erro",
+    "description": "Algo correu mal da nossa parte. Tente novamente ou regresse à página inicial.",
+    "retry": "Tentar novamente",
+    "backHome": "Voltar ao início"
+  },
   "seo": {
     "siteTitle": "Chanilai Castro — Consultora Imobiliária",
     "siteDescription": "Consultoria imobiliária com proximidade, rigor e transparência. Apoio especializado na compra, venda e investimento imobiliário em Portugal."

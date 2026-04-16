@@ -350,6 +350,19 @@
     "cookiesUpdated": "April 2025",
     "termsUpdated": "April 2025"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Überprüfen Sie die Adresse oder kehren Sie zur Startseite zurück.",
+    "backHome": "Zur Startseite"
+  },
+  "error": {
+    "code": "500",
+    "title": "Ein Fehler ist aufgetreten",
+    "description": "Auf unserer Seite ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
+    "retry": "Erneut versuchen",
+    "backHome": "Zur Startseite"
+  },
   "seo": {
     "siteTitle": "Chanilai Castro — Immobilienberaterin",
     "siteDescription": "Immobilienberatung mit Nähe, Sorgfalt und Transparenz. Spezialisierte Unterstützung beim Kauf, Verkauf und der Investition in Immobilien in Portugal."

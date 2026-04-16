@@ -350,6 +350,19 @@
     "cookiesUpdated": "April 2025",
     "termsUpdated": "April 2025"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved. Check the address or return to the homepage.",
+    "backHome": "Back to home"
+  },
+  "error": {
+    "code": "500",
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred on our end. Please try again or return to the homepage.",
+    "retry": "Try again",
+    "backHome": "Back to home"
+  },
   "seo": {
     "siteTitle": "Chanilai Castro — Real Estate Consultant",
     "siteDescription": "Real estate consultancy built on proximity, thoroughness and transparency. Specialist support for buying, selling and investing in property across Portugal."
