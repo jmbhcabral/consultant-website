@@ -60,7 +60,7 @@ export default async function GuidePage() {
                                 <a
                                     key={section.slug}
                                     href={`#${section.slug}`}
-                                    className="flex items-baseline gap-2.5 rounded-sm px-2 py-2 text-sm text-muted transition hover:text-foreground hover:bg-surface-soft/50 group"
+                                    className="flex items-start gap-2.5 rounded-sm px-2 py-2 text-sm text-muted transition hover:text-foreground hover:bg-surface-soft/50 group"
                                 >
                                     <span className="text-[0.6rem] tracking-widest text-accent-warm shrink-0">
                                         {section.number}

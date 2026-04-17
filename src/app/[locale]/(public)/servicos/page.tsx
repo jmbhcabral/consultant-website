@@ -69,12 +69,12 @@ export default async function ServicesPage() {
             {/* Services index */}
             <section className="border-b border-border bg-background">
                 <Container>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+                    <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-5 lg:divide-x lg:divide-y-0">
                         {services.map((service) => (
                             <a
                                 key={service.slug}
                                 href={`#${service.slug}`}
-                                className="group flex items-baseline gap-4 px-0 sm:px-8 py-6 first:sm:pl-0 last:sm:pr-0 transition hover:bg-surface-soft/30"
+                                className="group flex items-baseline gap-4 px-0 py-6 transition hover:bg-surface-soft/30 lg:px-5 first:lg:pl-0 last:lg:pr-0"
                             >
                                 <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
                                     {service.number}
