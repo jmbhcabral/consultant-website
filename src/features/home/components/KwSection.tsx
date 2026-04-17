@@ -1,6 +1,8 @@
 /** src/features/home/components/KwSection.tsx */
 
 import Container from "@/components/ui/Container";
+import FadeUp from "@/components/ui/animations/FadeUp";
+import SlideInLeft from "@/components/ui/animations/SlideInLeft";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -41,68 +43,80 @@ export default async function KwSection() {
         <section className="border-t border-b border-border bg-background">
             <Container>
                 <div className="flex flex-col gap-14 py-16 md:py-24">
+                    <div className="flex max-w-xl flex-col gap-5">
+                        <FadeUp>
+                            <span className="label">{t("kw.eyebrow")}</span>
+                        </FadeUp>
 
-                    {/* Header */}
-                    <div className="flex flex-col gap-5 max-w-xl">
-                        <span className="label">{t("kw.eyebrow")}</span>
-                        <h2 className="text-balance">{t("kw.title")}</h2>
+                        <FadeUp delay={0.08}>
+                            <h2 className="text-balance">{t("kw.title")}</h2>
+                        </FadeUp>
                     </div>
 
-                    {/* Stats strip */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border border border-border rounded-sm">
-                        {stats.map((stat) => (
-                            <div key={stat.labelKey} className="flex flex-col gap-1 px-6 py-5">
+                    <div className="grid grid-cols-2 divide-y divide-border rounded-sm border border-border sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+                        {stats.map((stat, index) => (
+                            <SlideInLeft
+                                key={stat.labelKey}
+                                delay={index * 0.1}
+                                className="flex flex-col gap-1 px-6 py-5"
+                            >
                                 <span className="text-2xl font-light tracking-tight text-foreground">
                                     {stat.value}
                                 </span>
-                                <span className="text-xs text-muted uppercase tracking-[0.14em]">
+                                <span className="text-xs uppercase tracking-[0.14em] text-muted">
                                     {t(stat.labelKey as Parameters<typeof t>[0])}
                                 </span>
-                            </div>
+                            </SlideInLeft>
                         ))}
                     </div>
 
-                    {/* Logo + advantages */}
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
-
-                        {/* Logo + description */}
                         <div className="flex flex-col justify-center gap-8 lg:pr-16">
-                            <div className="relative h-16 w-56">
-                                <Image
-                                    src="/logos/KW_LEAD_COLOR.png"
-                                    alt={t("kw.logoAlt")}
-                                    fill
-                                    sizes="224px"
-                                    className="object-contain object-left"
-                                />
-                            </div>
+                            <FadeUp>
+                                <div className="relative h-16 w-56">
+                                    <Image
+                                        src="/logos/KW_LEAD_COLOR.png"
+                                        alt={t("kw.logoAlt")}
+                                        fill
+                                        sizes="224px"
+                                        className="object-contain object-left"
+                                    />
+                                </div>
+                            </FadeUp>
 
-                            <div className="h-px w-10 bg-accent-warm" />
+                            <FadeUp delay={0.08}>
+                                <div className="h-px w-10 bg-accent-warm" />
+                            </FadeUp>
 
-                            <p className="text-base text-muted leading-relaxed text-pretty">
-                                {t("kw.body")}
-                            </p>
+                            <FadeUp delay={0.16}>
+                                <p className="text-base leading-relaxed text-muted text-pretty">
+                                    {t("kw.body")}
+                                </p>
+                            </FadeUp>
                         </div>
 
-                        {/* Vertical divider */}
-                        <div className="hidden lg:block w-px bg-border mx-8" />
+                        <div className="mx-8 hidden w-px bg-border lg:block" />
 
-                        {/* Advantages */}
                         <div className="flex flex-col divide-y divide-border lg:pl-16">
-                            {advantages.map((item) => (
-                                <div key={item.number} className="flex flex-col gap-2 py-5">
+                            {advantages.map((item, index) => (
+                                <SlideInLeft
+                                    key={item.number}
+                                    delay={index * 0.12}
+                                    className="flex flex-col gap-2 py-5"
+                                >
                                     <div className="flex items-baseline gap-3">
-                                        <span className="text-xs font-light tracking-[0.22em] text-accent-warm shrink-0">
+                                        <span className="shrink-0 text-xs font-light tracking-[0.22em] text-accent-warm">
                                             {item.number}
                                         </span>
                                         <h3 className="text-base! font-semibold text-foreground">
                                             {item.title}
                                         </h3>
                                     </div>
-                                    <p className="pl-7 text-sm text-muted leading-relaxed">
+
+                                    <p className="pl-7 text-sm leading-relaxed text-muted">
                                         {item.description}
                                     </p>
-                                </div>
+                                </SlideInLeft>
                             ))}
                         </div>
                     </div>
