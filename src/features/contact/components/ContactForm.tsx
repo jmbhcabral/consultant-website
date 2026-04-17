@@ -1,6 +1,9 @@
 /** src/features/contact/components/ContactForm.tsx */
 "use client";
 
+"use client";
+
+import FadeUp from "@/components/ui/animations/FadeUp";
 import { FieldError } from "@/components/ui/form/FieldError";
 import { Input } from "@/components/ui/form/Input";
 import { Label } from "@/components/ui/form/Label";
@@ -72,118 +75,122 @@ export default function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="flex flex-col gap-5 rounded-sm border border-border bg-surface p-8 md:p-10">
-        <div className="h-px w-10 bg-accent-warm" />
-        <h3 className="text-xl! font-semibold">{t("formSuccessTitle")}</h3>
-        <p className="text-sm leading-relaxed text-muted">{t("formSuccessBody")}</p>
-        <button
-          type="button"
-          onClick={() => {
-            setIsSuccess(false);
-            setSubmitError(null);
-          }}
-          className="self-start text-xs font-medium uppercase tracking-[0.12em] text-foreground/60 underline-offset-4 transition hover:underline"
-        >
-          {t("formSendAnother")}
-        </button>
-      </div>
+      <FadeUp>
+        <div className="flex flex-col gap-5 rounded-sm border border-border bg-surface p-8 md:p-10">
+          <div className="h-px w-10 bg-accent-warm" />
+          <h3 className="text-xl! font-semibold">{t("formSuccessTitle")}</h3>
+          <p className="text-sm leading-relaxed text-muted">{t("formSuccessBody")}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setIsSuccess(false);
+              setSubmitError(null);
+            }}
+            className="self-start text-xs font-medium uppercase tracking-[0.12em] text-foreground/60 underline-offset-4 transition hover:underline"
+          >
+            {t("formSendAnother")}
+          </button>
+        </div>
+      </FadeUp>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <FadeUp>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="name" required>
+              {t("formNameLabel")}
+            </Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder={t("formNamePlaceholder")}
+              autoComplete="name"
+              error={!!errors.name}
+              {...register("name")}
+            />
+            <FieldError id="name-error" message={errors.name?.message} />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="email" required>
+              {t("formEmailLabel")}
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder={t("formEmailPlaceholder")}
+              autoComplete="email"
+              error={!!errors.email}
+              {...register("email")}
+            />
+            <FieldError id="email-error" message={errors.email?.message} />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="phone">{t("formPhoneLabel")}</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder={t("formPhonePlaceholder")}
+              autoComplete="tel"
+              error={!!errors.phone}
+              {...register("phone")}
+            />
+            <FieldError id="phone-error" message={errors.phone?.message} />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="subject" required>
+              {t("formSubjectLabel")}
+            </Label>
+            <Input
+              id="subject"
+              type="text"
+              placeholder={t("formSubjectPlaceholder")}
+              error={!!errors.subject}
+              {...register("subject")}
+            />
+            <FieldError id="subject-error" message={errors.subject?.message} />
+          </div>
+        </div>
+
         <div className="flex flex-col gap-2">
-          <Label htmlFor="name" required>
-            {t("formNameLabel")}
+          <Label htmlFor="message" required>
+            {t("formMessageLabel")}
           </Label>
-          <Input
-            id="name"
-            type="text"
-            placeholder={t("formNamePlaceholder")}
-            autoComplete="name"
-            error={!!errors.name}
-            {...register("name")}
+          <Textarea
+            id="message"
+            rows={6}
+            placeholder={t("formMessagePlaceholder")}
+            error={!!errors.message}
+            {...register("message")}
           />
-          <FieldError id="name-error" message={errors.name?.message} />
+          <FieldError id="message-error" message={errors.message?.message} />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="email" required>
-            {t("formEmailLabel")}
-          </Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder={t("formEmailPlaceholder")}
-            autoComplete="email"
-            error={!!errors.email}
-            {...register("email")}
-          />
-          <FieldError id="email-error" message={errors.email?.message} />
+        {submitError && <p className="text-sm text-red-600">{submitError}</p>}
+
+        <div className="flex items-center gap-4 pt-2">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {isSubmitting ? t("formSubmitting") : t("formSubmit")}
+            {!isSubmitting && <span aria-hidden="true">→</span>}
+          </button>
+
+          <span className="text-xs text-muted">
+            {tCommon("requiredFields").replace("*", "")}
+            <span className="text-accent-warm">*</span>
+          </span>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="phone">{t("formPhoneLabel")}</Label>
-          <Input
-            id="phone"
-            type="tel"
-            placeholder={t("formPhonePlaceholder")}
-            autoComplete="tel"
-            error={!!errors.phone}
-            {...register("phone")}
-          />
-          <FieldError id="phone-error" message={errors.phone?.message} />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="subject" required>
-            {t("formSubjectLabel")}
-          </Label>
-          <Input
-            id="subject"
-            type="text"
-            placeholder={t("formSubjectPlaceholder")}
-            error={!!errors.subject}
-            {...register("subject")}
-          />
-          <FieldError id="subject-error" message={errors.subject?.message} />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="message" required>
-          {t("formMessageLabel")}
-        </Label>
-        <Textarea
-          id="message"
-          rows={6}
-          placeholder={t("formMessagePlaceholder")}
-          error={!!errors.message}
-          {...register("message")}
-        />
-        <FieldError id="message-error" message={errors.message?.message} />
-      </div>
-
-      {submitError && <p className="text-sm text-red-600">{submitError}</p>}
-
-      <div className="flex items-center gap-4 pt-2">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {isSubmitting ? t("formSubmitting") : t("formSubmit")}
-          {!isSubmitting && <span aria-hidden="true">→</span>}
-        </button>
-
-        <span className="text-xs text-muted">
-          {tCommon("requiredFields").replace("*", "")}
-          <span className="text-accent-warm">*</span>
-        </span>
-      </div>
-    </form>
+      </form>
+    </FadeUp>
   );
 }
