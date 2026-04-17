@@ -2,6 +2,8 @@
 
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
+import FadeUp from "@/components/ui/animations/FadeUp";
+import SlideInLeft from "@/components/ui/animations/SlideInLeft";
 import { getTranslations } from "next-intl/server";
 
 export default async function AboutApproach() {
@@ -18,20 +20,25 @@ export default async function AboutApproach() {
             <Container>
                 <div className="flex flex-col gap-14">
                     <div className="flex max-w-xl flex-col gap-5">
-                        <span className="label-white">{t("approachEyebrow")}</span>
-                        <h2 className="text-white text-balance">{t("approachTitle")}</h2>
+                        <FadeUp>
+                            <span className="label-white">{t("approachEyebrow")}</span>
+                        </FadeUp>
+
+                        <FadeUp delay={0.08}>
+                            <h2 className="text-balance text-white">{t("approachTitle")}</h2>
+                        </FadeUp>
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {approach.map((item) => (
-                            <div key={item.number} className="flex flex-col gap-4">
+                        {approach.map((item, index) => (
+                            <SlideInLeft key={item.number} delay={index * 0.12} className="flex flex-col gap-4">
                                 <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
                                     {item.number}
                                 </span>
                                 <div className="h-px w-full bg-white/10" />
                                 <h3 className="text-xl! font-semibold text-white">{item.title}</h3>
-                                <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
-                            </div>
+                                <p className="text-sm leading-relaxed text-white/60">{item.description}</p>
+                            </SlideInLeft>
                         ))}
                     </div>
                 </div>
