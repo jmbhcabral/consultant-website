@@ -2,7 +2,6 @@
 'use client';
 
 import { locales, localeMeta, type Locale } from "@/lib/i18n/routing";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -20,6 +19,20 @@ function stripLocale(pathname: string, locale: Locale): string {
         return rest || "/";
     }
     return "/";
+}
+
+function Flag({ src, alt }: { src: string; alt: string }) {
+    return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+            src={src}
+            alt={alt}
+            width={16}
+            height={12}
+            className="rounded-sm shrink-0"
+            style={{ width: 16, height: 12, display: "block" }}
+        />
+    );
 }
 
 export default function LanguageSwitcher({ locale, variant = "desktop" }: LanguageSwitcherProps) {
@@ -62,13 +75,7 @@ export default function LanguageSwitcher({ locale, variant = "desktop" }: Langua
                                         : "text-white/45 hover:text-white hover:bg-white/6"
                                 }`}
                             >
-                                <Image
-                                    src={meta.flagSrc}
-                                    alt={meta.label}
-                                    width={16}
-                                    height={12}
-                                    className="rounded-sm shrink-0"
-                                />
+                                <Flag src={meta.flagSrc} alt={meta.label} />
                                 {loc.toUpperCase()}
                             </Link>
                         );
@@ -88,13 +95,7 @@ export default function LanguageSwitcher({ locale, variant = "desktop" }: Langua
                 aria-haspopup="listbox"
                 className="flex items-center gap-1.5 rounded-sm px-2 py-1.5 text-xs font-medium tracking-widest uppercase text-foreground/55 transition hover:text-foreground"
             >
-                <Image
-                    src={currentMeta.flagSrc}
-                    alt={currentMeta.label}
-                    width={16}
-                    height={12}
-                    className="rounded-sm shrink-0"
-                />
+                <Flag src={currentMeta.flagSrc} alt={currentMeta.label} />
                 <span>{locale.toUpperCase()}</span>
                 <span
                     aria-hidden="true"
@@ -128,13 +129,7 @@ export default function LanguageSwitcher({ locale, variant = "desktop" }: Langua
                                     : "text-muted hover:bg-surface-soft/50 hover:text-foreground"
                             }`}
                         >
-                            <Image
-                                src={meta.flagSrc}
-                                alt=""
-                                width={16}
-                                height={12}
-                                className="rounded-sm shrink-0"
-                            />
+                            <Flag src={meta.flagSrc} alt="" />
                             <span>{meta.label}</span>
                         </Link>
                     );

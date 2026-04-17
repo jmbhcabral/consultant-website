@@ -72,6 +72,7 @@ export default async function KwSection() {
                                     src="/logos/KW_LEAD_COLOR.png"
                                     alt={t("kw.logoAlt")}
                                     fill
+                                    sizes="224px"
                                     className="object-contain object-left"
                                 />
                             </div>

@@ -7,6 +7,7 @@ import { servicesMeta } from "@/features/services/data/services";
 import { buildLanguageAlternates, siteUrl } from "@/lib/seo/config";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import Link from "next/link";
 
 export async function generateMetadata({
@@ -102,6 +103,31 @@ export default async function ServicesPage() {
 
             {/* How it works */}
             <ServicesProcess />
+
+            {/* Photo block */}
+            <section className="border-b border-border bg-surface-soft/40 py-20 md:py-28">
+                <Container>
+                    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+                        <div className="flex flex-col gap-5 max-w-xl">
+                            <span className="label">{t("photoEyebrow")}</span>
+                            <h2 className="text-balance">{t("photoTitle")}</h2>
+                            <p className="text-base text-muted leading-relaxed text-pretty">
+                                {t("photoBody")}
+                            </p>
+                        </div>
+
+                        <div className="relative overflow-hidden rounded-sm border border-border bg-surface-soft min-h-[320px] md:min-h-[480px]">
+                            <Image
+                                src="/images/chanilai_castro.png"
+                                alt={t("photoAlt")}
+                                fill
+                                className="object-cover object-top"
+                                sizes="(max-width: 1024px) 100vw, 45vw"
+                            />
+                        </div>
+                    </div>
+                </Container>
+            </section>
 
             {/* CTA */}
             <section className="border-t border-border bg-background py-20 md:py-28">

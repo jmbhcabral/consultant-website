@@ -23,6 +23,7 @@ export default async function ConsultantSection() {
                                 src={consultant.url}
                                 alt={consultant.name}
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 40vw"
                                 className="object-cover"
                             />
                         </div>

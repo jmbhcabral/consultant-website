@@ -49,7 +49,7 @@ export default async function RootLayout({
     const locale = await getLocale();
 
     return (
-        <html lang={locale} className={`${inter.variable} h-full antialiased`}>
+        <html lang={locale} data-scroll-behavior="smooth" className={`${inter.variable} h-full antialiased`}>
             <body className="min-h-full flex flex-col">{children}</body>
         </html>
     );
