@@ -1,6 +1,8 @@
 /** src/features/services/components/ServiceBlock.tsx */
 
 import Container from "@/components/ui/Container";
+import FadeUp from "@/components/ui/animations/FadeUp";
+import SlideInLeft from "@/components/ui/animations/SlideInLeft";
 import type { Service } from "../data/services";
 
 type ServiceBlockProps = {
@@ -25,51 +27,52 @@ export default function ServiceBlock({
         >
             <Container>
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
-
-                    {/* Left — title + description */}
-                    <div className="flex flex-col gap-7 lg:pr-16">
+                    <FadeUp className="flex flex-col gap-7 lg:pr-16">
                         <div className="flex flex-col gap-3">
                             <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
                                 {service.number}
                             </span>
                             <h2 className="text-balance">{service.title}</h2>
-                            <p className="text-sm font-medium text-muted tracking-wide">
+                            <p className="text-sm font-medium tracking-wide text-muted">
                                 {service.tagline}
                             </p>
                         </div>
 
                         <div className="h-px w-10 bg-accent-warm" />
 
-                        <p className="text-base text-muted leading-relaxed text-pretty">
+                        <p className="text-base leading-relaxed text-muted text-pretty">
                             {service.description}
                         </p>
 
                         <a
                             href={contactHref}
-                            className="self-start inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-foreground transition hover:opacity-60"
+                            className="inline-flex self-start items-center gap-2 text-sm font-semibold tracking-wide text-foreground transition hover:opacity-60"
                         >
                             {talkAboutLabel}
                             <span aria-hidden="true">→</span>
                         </a>
-                    </div>
+                    </FadeUp>
 
-                    {/* Vertical divider (desktop) */}
-                    <div className="hidden lg:block w-px bg-border mx-8" />
+                    <div className="mx-8 hidden w-px bg-border lg:block" />
 
-                    {/* Right — steps */}
                     <div className="flex flex-col gap-2 lg:pl-16">
-                        <span className="label mb-4">{whatIncludesLabel}</span>
+                        <FadeUp>
+                            <span className="label mb-4">{whatIncludesLabel}</span>
+                        </FadeUp>
+
                         <ul className="flex flex-col divide-y divide-border">
                             {service.steps.map((step, i) => (
-                                <li key={i} className="flex items-start gap-4 py-4">
-                                    <span
-                                        aria-hidden="true"
-                                        className="mt-0.5 shrink-0 text-xs font-light tracking-widest text-accent-warm"
-                                    >
-                                        {String(i + 1).padStart(2, "0")}
-                                    </span>
-                                    <span className="text-sm text-muted leading-relaxed">{step}</span>
-                                </li>
+                                <SlideInLeft key={i} delay={i * 0.08}>
+                                    <li className="flex items-start gap-4 py-4">
+                                        <span
+                                            aria-hidden="true"
+                                            className="mt-0.5 shrink-0 text-xs font-light tracking-widest text-accent-warm"
+                                        >
+                                            {String(i + 1).padStart(2, "0")}
+                                        </span>
+                                        <span className="text-sm leading-relaxed text-muted">{step}</span>
+                                    </li>
+                                </SlideInLeft>
                             ))}
                         </ul>
                     </div>

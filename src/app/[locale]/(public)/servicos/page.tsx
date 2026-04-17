@@ -1,6 +1,8 @@
 /** src/app/[locale]/(public)/servicos/page.tsx */
 
 import Container from "@/components/ui/Container";
+import FadeUp from "@/components/ui/animations/FadeUp";
+import SlideInLeft from "@/components/ui/animations/SlideInLeft";
 import ServiceBlock from "@/features/services/components/ServiceBlock";
 import ServicesProcess from "@/features/services/components/ServicesProcess";
 import { servicesMeta } from "@/features/services/data/services";
@@ -55,40 +57,52 @@ export default async function ServicesPage() {
 
     return (
         <>
-            {/* Hero */}
             <section className="border-b border-border bg-background">
                 <Container>
-                    <div className="flex flex-col gap-4 py-14 md:py-20 max-w-2xl">
-                        <span className="label">{t("pageLabel")}</span>
-                        <h1 className="text-balance">{t("pageTitle")}</h1>
-                        <p className="text-base text-muted leading-relaxed max-w-xl">{t("pageDesc")}</p>
+                    <div className="max-w-2xl flex flex-col gap-4 py-14 md:py-20">
+                        <FadeUp>
+                            <span className="label">{t("pageLabel")}</span>
+                        </FadeUp>
+
+                        <FadeUp delay={0.08}>
+                            <h1 className="text-balance">{t("pageTitle")}</h1>
+                        </FadeUp>
+
+                        <FadeUp delay={0.16}>
+                            <p className="max-w-xl text-base leading-relaxed text-muted">
+                                {t("pageDesc")}
+                            </p>
+                        </FadeUp>
                     </div>
                 </Container>
             </section>
 
-            {/* Services index */}
             <section className="border-b border-border bg-background">
                 <Container>
                     <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-5 lg:divide-x lg:divide-y-0">
-                        {services.map((service) => (
-                            <a
+                        {services.map((service, index) => (
+                            <SlideInLeft
                                 key={service.slug}
-                                href={`#${service.slug}`}
-                                className="group flex items-baseline gap-4 px-0 py-6 transition hover:bg-surface-soft/30 lg:px-5 first:lg:pl-0 last:lg:pr-0"
+                                delay={index * 0.08}
+                                className="group"
                             >
-                                <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
-                                    {service.number}
-                                </span>
-                                <span className="text-sm font-semibold tracking-wide text-foreground group-hover:opacity-70 transition">
-                                    {service.title}
-                                </span>
-                            </a>
+                                <a
+                                    href={`#${service.slug}`}
+                                    className="flex items-baseline gap-4 px-0 py-6 transition hover:bg-surface-soft/30 lg:px-5 first:lg:pl-0 last:lg:pr-0"
+                                >
+                                    <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
+                                        {service.number}
+                                    </span>
+                                    <span className="text-sm font-semibold tracking-wide text-foreground transition group-hover:opacity-70">
+                                        {service.title}
+                                    </span>
+                                </a>
+                            </SlideInLeft>
                         ))}
                     </div>
                 </Container>
             </section>
 
-            {/* Detailed services */}
             {services.map((service, index) => (
                 <div key={service.slug} className="border-b border-border">
                     <ServiceBlock
@@ -101,60 +115,77 @@ export default async function ServicesPage() {
                 </div>
             ))}
 
-            {/* How it works */}
             <ServicesProcess />
 
-            {/* Photo block */}
             <section className="border-b border-border bg-surface-soft/40 py-20 md:py-28">
                 <Container>
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div className="flex flex-col gap-5 max-w-xl">
-                            <span className="label">{t("photoEyebrow")}</span>
-                            <h2 className="text-balance">{t("photoTitle")}</h2>
-                            <p className="text-base text-muted leading-relaxed text-pretty">
-                                {t("photoBody")}
-                            </p>
+                        <div className="flex max-w-xl flex-col gap-5">
+                            <FadeUp>
+                                <span className="label">{t("photoEyebrow")}</span>
+                            </FadeUp>
+
+                            <FadeUp delay={0.08}>
+                                <h2 className="text-balance">{t("photoTitle")}</h2>
+                            </FadeUp>
+
+                            <FadeUp delay={0.16}>
+                                <p className="text-base leading-relaxed text-muted text-pretty">
+                                    {t("photoBody")}
+                                </p>
+                            </FadeUp>
                         </div>
 
-                        <div className="relative overflow-hidden rounded-sm border border-border bg-surface-soft min-h-[320px] md:min-h-[480px]">
-                            <Image
-                                src="/images/chanilai_castro.png"
-                                alt={t("photoAlt")}
-                                fill
-                                className="object-cover object-top"
-                                sizes="(max-width: 1024px) 100vw, 45vw"
-                            />
-                        </div>
+                        <SlideInLeft>
+                            <div className="relative min-h-[320px] overflow-hidden rounded-sm border border-border bg-surface-soft md:min-h-[480px]">
+                                <Image
+                                    src="/images/chanilai_castro.png"
+                                    alt={t("photoAlt")}
+                                    fill
+                                    className="object-cover object-top"
+                                    sizes="(max-width: 1024px) 100vw, 45vw"
+                                />
+                            </div>
+                        </SlideInLeft>
                     </div>
                 </Container>
             </section>
 
-            {/* CTA */}
             <section className="border-t border-border bg-background py-20 md:py-28">
                 <Container className="flex justify-center">
                     <div className="flex w-full max-w-3xl flex-col items-center gap-8 text-center">
-                        <span className="label">{t("ctaEyebrow")}</span>
+                        <FadeUp>
+                            <span className="label">{t("ctaEyebrow")}</span>
+                        </FadeUp>
 
-                        <h2 className="text-balance max-w-2xl">{t("ctaTitle")}</h2>
+                        <FadeUp delay={0.08}>
+                            <h2 className="max-w-2xl text-balance">{t("ctaTitle")}</h2>
+                        </FadeUp>
 
-                        <p className="max-w-xl text-muted text-pretty leading-relaxed">{t("ctaBody")}</p>
+                        <FadeUp delay={0.16}>
+                            <p className="max-w-xl text-pretty leading-relaxed text-muted">
+                                {t("ctaBody")}
+                            </p>
+                        </FadeUp>
 
-                        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-center">
-                            <Link
-                                href="/contacto"
-                                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white! transition hover:opacity-85"
-                            >
-                                {tCommon("bookCall")}
-                                <span aria-hidden="true">→</span>
-                            </Link>
+                        <FadeUp delay={0.24}>
+                            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-center">
+                                <Link
+                                    href="/contacto"
+                                    className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white! transition hover:opacity-85"
+                                >
+                                    {tCommon("bookCall")}
+                                    <span aria-hidden="true">→</span>
+                                </Link>
 
-                            <Link
-                                href="/contacto"
-                                className="inline-flex items-center justify-center rounded-sm border border-border px-7 py-3.5 text-sm font-semibold tracking-wide text-foreground transition hover:bg-surface-soft/60"
-                            >
-                                {tCommon("requestValuation")}
-                            </Link>
-                        </div>
+                                <Link
+                                    href="/contacto"
+                                    className="inline-flex items-center justify-center rounded-sm border border-border px-7 py-3.5 text-sm font-semibold tracking-wide text-foreground transition hover:bg-surface-soft/60"
+                                >
+                                    {tCommon("requestValuation")}
+                                </Link>
+                            </div>
+                        </FadeUp>
                     </div>
                 </Container>
             </section>
