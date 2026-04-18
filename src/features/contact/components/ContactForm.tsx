@@ -1,8 +1,6 @@
 /** src/features/contact/components/ContactForm.tsx */
 "use client";
 
-"use client";
-
 import FadeUp from "@/components/ui/animations/FadeUp";
 import { FieldError } from "@/components/ui/form/FieldError";
 import { Input } from "@/components/ui/form/Input";
@@ -14,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { trackEvent } from "@/lib/analytics";
 
 function buildSchema(t: ReturnType<typeof useTranslations<"contact">>) {
   return z.object({
@@ -64,6 +63,11 @@ export default function ContactForm() {
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Submission failed");
       }
+
+      trackEvent("generate_lead", {
+        form_name: "contact_form",
+        lead_type: "website_contact",
+      });
 
       setIsSuccess(true);
       reset();
