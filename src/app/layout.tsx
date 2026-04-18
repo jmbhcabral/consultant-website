@@ -1,6 +1,7 @@
 /** src/app/layout.tsx */
 import { siteUrl, siteName } from "@/lib/seo/config";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
@@ -41,6 +42,8 @@ export const metadata: Metadata = {
     },
 };
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default async function RootLayout({
     children,
 }: Readonly<{
@@ -50,7 +53,25 @@ export default async function RootLayout({
 
     return (
         <html lang={locale} data-scroll-behavior="smooth" className={`${inter.variable} h-full antialiased`}>
-            <body className="min-h-full flex flex-col">{children}</body>
+            <body className="min-h-full flex flex-col">{children}
+                {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
+            </body>
         </html>
     );
 }
