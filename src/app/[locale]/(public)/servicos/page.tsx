@@ -90,7 +90,7 @@ export default async function ServicesPage() {
                                     href={`#${service.slug}`}
                                     className="flex items-baseline gap-4 px-0 py-6 transition hover:bg-surface-soft/30 lg:px-5 first:lg:pl-0 last:lg:pr-0"
                                 >
-                                    <span className="text-xs font-light tracking-[0.22em] text-accent-warm">
+                                    <span className="text-xs font-light tracking-[0.22em] pl-2 text-accent-warm">
                                         {service.number}
                                     </span>
                                     <span className="text-sm font-semibold tracking-wide text-foreground transition group-hover:opacity-70">
