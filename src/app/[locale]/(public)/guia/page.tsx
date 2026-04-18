@@ -3,12 +3,12 @@
 import Container from "@/components/ui/Container";
 import FadeUp from "@/components/ui/animations/FadeUp";
 import SlideInLeft from "@/components/ui/animations/SlideInLeft";
+import GuideCtaActions from "@/features/guide/components/GuideCtaActions";
 import { GuideHighlight } from "@/features/guide/components/GuideHighlight";
 import { guideSectionsMeta } from "@/features/guide/data/guide";
 import { buildLanguageAlternates, siteUrl } from "@/lib/seo/config";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 
 export async function generateMetadata({
     params,
@@ -482,21 +482,10 @@ export default async function GuidePage() {
                                 </FadeUp>
 
                                 <FadeUp delay={0.24}>
-                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                                        <Link
-                                            href="/contacto"
-                                            className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white! transition hover:opacity-85"
-                                        >
-                                            {t("guideCTATalk")}
-                                            <span aria-hidden="true">→</span>
-                                        </Link>
-                                        <Link
-                                            href="/servicos"
-                                            className="inline-flex items-center justify-center rounded-sm border border-border px-7 py-3.5 text-sm font-semibold tracking-wide text-foreground transition hover:bg-surface-soft/60"
-                                        >
-                                            {t("guideCTAServices")}
-                                        </Link>
-                                    </div>
+                                    <GuideCtaActions
+                                        talkLabel={t("guideCTATalk")}
+                                        servicesLabel={t("guideCTAServices")}
+                                    />
                                 </FadeUp>
                             </div>
                         </div>

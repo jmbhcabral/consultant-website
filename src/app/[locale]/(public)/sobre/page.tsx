@@ -6,10 +6,10 @@ import SlideInLeft from "@/components/ui/animations/SlideInLeft";
 import AboutAdvantages from "@/features/about/components/AboutAdvantages";
 import AboutApproach from "@/features/about/components/AboutApproach";
 import AboutJourney from "@/features/about/components/AboutJourney";
+import AboutCtaActions from "@/features/about/components/AboutCtaActions";
 import { buildLanguageAlternates, siteUrl } from "@/lib/seo/config";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 
 export async function generateMetadata({
     params,
@@ -106,22 +106,10 @@ export default async function AboutPage() {
                         </FadeUp>
 
                         <FadeUp delay={0.24}>
-                            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-center">
-                                <Link
-                                    href="/contacto"
-                                    className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-7 py-3.5 text-sm font-semibold tracking-wide text-white! transition hover:opacity-85"
-                                >
-                                    {tCommon("bookCall")}
-                                    <span aria-hidden="true">→</span>
-                                </Link>
-
-                                <Link
-                                    href="/servicos"
-                                    className="inline-flex items-center justify-center rounded-sm border border-border px-7 py-3.5 text-sm font-semibold tracking-wide text-foreground transition hover:bg-surface-soft/60"
-                                >
-                                    {t("ctaServices")}
-                                </Link>
-                            </div>
+                            <AboutCtaActions
+                                bookCallLabel={tCommon("bookCall")}
+                                servicesLabel={t("ctaServices")}
+                            />
                         </FadeUp>
                     </div>
                 </Container>

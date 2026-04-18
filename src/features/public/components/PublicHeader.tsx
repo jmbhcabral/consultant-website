@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useState } from "react";
 import pathHref from "../navigation/buildPublicHref";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { trackEvent } from "@/lib/analytics";
 
 type PublicHeaderProps = {
     locale: Locale;
@@ -71,6 +72,12 @@ export default function PublicHeader({ locale }: PublicHeaderProps) {
                             <div className="h-4 w-px bg-border" />
                             <Link
                                 href={pathHref(locale, contactPath)}
+                                onClick={() =>
+                                        trackEvent("cta_click", {
+                                            cta_name: "book_call",
+                                            location: "public_header",
+                                        })
+                                    }
                                 className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-5 py-2.5 text-xs font-semibold tracking-wide text-white! transition hover:opacity-85"
                             >
                                 {t("common.bookCall")}
@@ -139,7 +146,14 @@ export default function PublicHeader({ locale }: PublicHeaderProps) {
                         <LanguageSwitcher locale={locale} variant="mobile" />
                         <Link
                             href={pathHref(locale, contactPath)}
-                            onClick={closeMenu}
+                            onClick={() =>  {
+                                trackEvent("cta_click", {
+                                    cta_name: "book_call",
+                                    location: "public_mobile_menu",
+                                })
+                                closeMenu();
+                            }
+                            }
                             className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-white/25 px-6 py-4 text-sm font-semibold tracking-wide text-white! transition hover:bg-white/8 hover:border-white/45"
                         >
                             {t("common.bookCall")}
