@@ -137,9 +137,9 @@ export default async function ServicesPage() {
                         </div>
 
                         <SlideInLeft>
-                            <div className="relative min-h-[320px] overflow-hidden rounded-sm border border-border bg-surface-soft md:min-h-[480px]">
+                            <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-border bg-surface-soft md:min-h-[480px]">
                                 <Image
-                                    src="/images/chanilai_castro.png"
+                                    src="/images/chanilai_castro_background_2.jpg"
                                     alt={t("photoAlt")}
                                     fill
                                     className="object-cover object-top"

@@ -8,7 +8,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const consultant = {
-    url: "/images/consultant-3.png",
+    url: "/images/chanilai_castro_background_9.jpg",
     name: "Chanilai Castro",
 };
 
@@ -21,7 +21,7 @@ export default async function ConsultantSection() {
                 <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
                     <div className="w-full lg:w-2/5">
                         <SlideInLeft>
-                            <div className="relative aspect-4/5 overflow-hidden rounded-sm bg-foreground/10">
+                            <div className="relative aspect-4/5 overflow-hidden rounded-lg bg-foreground/10">
                                 <Image
                                     src={consultant.url}
                                     alt={consultant.name}
