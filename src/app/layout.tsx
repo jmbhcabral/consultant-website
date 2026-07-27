@@ -21,6 +21,13 @@ export const metadata: Metadata = {
         "Consultoria imobiliária com proximidade, rigor e transparência. Apoio especializado na compra, venda e investimento imobiliário em Portugal.",
     authors: [{ name: siteName }],
     creator: siteName,
+    other: {
+
+        "facebook-domain-verification":
+
+            "v6d15td4i9ytnghu0jkvy993t3gpbd",
+
+    },
     openGraph: {
         type: "website",
         siteName,
