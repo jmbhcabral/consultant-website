@@ -3,6 +3,7 @@
 import Container from "@/components/ui/Container";
 import CookiePreferencesButton from "@/features/consent/components/CookiePreferencesButton";
 import type { Locale } from "@/lib/i18n/routing";
+import { legalBusinessName } from "@/lib/seo/config";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,9 +96,14 @@ export default async function PublicFooter({ locale }: PublicFooterProps) {
 
                 {/* Bottom bar */}
                 <div className="flex flex-col gap-4 border-t border-border py-5 sm:flex-row sm:items-center sm:justify-between">
-                    <span className="text-xs text-muted">
-                        © {year} Chanilai Castro. {t("common.rights")}
-                    </span>
+                    <div className="flex flex-col gap-1">
+                        <span className="text-xs text-muted">
+                            © {year} Chanilai Castro. {t("common.rights")}
+                        </span>
+                        <span className="text-xs text-muted">
+                            Designação legal: {legalBusinessName}
+                        </span>
+                    </div>
 
                     <div className="flex items-center gap-3">
                         <span className="text-xs text-muted/60">{t("common.member")}</span>

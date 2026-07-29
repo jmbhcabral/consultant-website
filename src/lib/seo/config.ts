@@ -3,6 +3,8 @@ import { locales } from "@/lib/i18n/routing";
 
 export const siteUrl = "https://chanilaicastro.pt";
 export const siteName = "Chanilai Castro";
+
+export const legalBusinessName = "CHANILAI DA MATA BORGES DE CASTRO";
 export const consultantEmail = "chanilai.castro@kwportugal.pt";
 export const consultantPhone = "+351931750614";
 
