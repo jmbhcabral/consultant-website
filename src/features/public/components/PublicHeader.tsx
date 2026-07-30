@@ -43,7 +43,7 @@ export default function PublicHeader({ locale }: PublicHeaderProps) {
                             className="flex flex-col leading-none gap-1"
                         >
                             <span className="text-sm font-semibold tracking-[0.14em] uppercase text-foreground">
-                                Chanilai Castro
+                                CHANILAI DA MATA BORGES DE CASTRO
                             </span>
                             <span className="text-[0.6rem] tracking-[0.22em] uppercase text-muted">
                                 {t("common.realEstateConsultant")}

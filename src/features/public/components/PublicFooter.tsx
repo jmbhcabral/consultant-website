@@ -29,7 +29,7 @@ export default async function PublicFooter({ locale }: PublicFooterProps) {
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-col leading-none gap-1">
                             <span className="text-sm font-semibold tracking-[0.14em] uppercase text-foreground">
-                                Chanilai Castro
+                                CHANILAI DA MATA BORGES DE CASTRO
                             </span>
                             <span className="text-[0.6rem] tracking-[0.22em] uppercase text-muted">
                                 {t("common.realEstateConsultant")}
@@ -37,6 +37,13 @@ export default async function PublicFooter({ locale }: PublicFooterProps) {
                         </div>
                         <p className="max-w-xs text-sm text-muted leading-relaxed">
                             {t("footer.tagline")}
+                        </p>
+                        <p className="max-w-xs text-sm text-muted leading-relaxed">
+                            RUA AVELAR BROTERO TORRE 2 5º E,
+                            <br /> 
+                            2660-235 SANTO ANTÓNIO CAVALEIROS
+                            <br />
+                            LOURES
                         </p>
                     </div>
 
@@ -65,6 +72,8 @@ export default async function PublicFooter({ locale }: PublicFooterProps) {
                             className="text-sm text-muted transition hover:text-foreground"
                         >
                             +351 931 750 614
+                            <br />
+                            +351 937 806 282
                         </a>
                         <a
                             href="mailto:chanilai.castro@kwportugal.pt"
