@@ -7,10 +7,10 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const stats = [
-    { value: "+190.000", labelKey: "kw.stat1Label" },
-    { value: "55+", labelKey: "kw.stat2Label" },
-    { value: "#1", labelKey: "kw.stat3Label" },
-    { value: "1983", labelKey: "kw.stat4Label" },
+    { value: "131.000+", labelKey: "c21.stat1Label" },  // consultores globais (website oficial de Portugal)
+    { value: "80+", labelKey: "c21.stat2Label" },       // países (website oficial de Portugal)
+    { value: "11.000+", labelKey: "c21.stat3Label" },   // agências globais
+    { value: "1971", labelKey: "c21.stat4Label" },      // ano de fundação
 ];
 
 export default async function KwSection() {
@@ -19,23 +19,23 @@ export default async function KwSection() {
     const advantages = [
         {
             number: "01",
-            title: t("kw.adv1Title"),
-            description: t("kw.adv1Desc"),
+            title: t("c21.adv1Title"),
+            description: t("c21.adv1Desc"),
         },
         {
             number: "02",
-            title: t("kw.adv2Title"),
-            description: t("kw.adv2Desc"),
+            title: t("c21.adv2Title"),
+            description: t("c21.adv2Desc"),
         },
         {
             number: "03",
-            title: t("kw.adv3Title"),
-            description: t("kw.adv3Desc"),
+            title: t("c21.adv3Title"),
+            description: t("c21.adv3Desc"),
         },
         {
             number: "04",
-            title: t("kw.adv4Title"),
-            description: t("kw.adv4Desc"),
+            title: t("c21.adv4Title"),
+            description: t("c21.adv4Desc"),
         },
     ];
 
@@ -45,11 +45,11 @@ export default async function KwSection() {
                 <div className="flex flex-col gap-14 py-16 md:py-24">
                     <div className="flex max-w-xl flex-col gap-5">
                         <FadeUp>
-                            <span className="label">{t("kw.eyebrow")}</span>
+                            <span className="label">{t("c21.eyebrow")}</span>
                         </FadeUp>
 
                         <FadeUp delay={0.08}>
-                            <h2 className="text-balance">{t("kw.title")}</h2>
+                            <h2 className="text-balance">{t("c21.title")}</h2>
                         </FadeUp>
                     </div>
 
@@ -73,12 +73,12 @@ export default async function KwSection() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
                         <div className="flex flex-col justify-center gap-8 lg:pr-16">
                             <FadeUp>
-                                <div className="relative h-16 w-56">
+                                <div className="relative h-16 w-64">
                                     <Image
-                                        src="/logos/KW_LEAD_COLOR.png"
-                                        alt={t("kw.logoAlt")}
+                                        src="/logos/c21-housemarket.png"
+                                        alt={t("c21.logoAlt")}
                                         fill
-                                        sizes="224px"
+                                        sizes="256px"
                                         className="object-contain object-left"
                                     />
                                 </div>
@@ -90,7 +90,7 @@ export default async function KwSection() {
 
                             <FadeUp delay={0.16}>
                                 <p className="text-base leading-relaxed text-muted text-pretty">
-                                    {t("kw.body")}
+                                    {t("c21.body")}
                                 </p>
                             </FadeUp>
                         </div>
